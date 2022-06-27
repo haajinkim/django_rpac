@@ -19,3 +19,11 @@ class UserSerializer(serializers.ModelSerializer):
         user.set_password(password)
         user.save()
         return user
+
+class FollowerSerializer(serializers.ModelSerializer):
+    follow = serializers.SerializerMethodField()
+    def get_follow(self,obj):
+        return [{"username":user.username}for user in obj.follow.all()]
+    class Meta:
+        model = User
+        fields = ["follow"]

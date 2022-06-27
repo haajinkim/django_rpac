@@ -14,6 +14,10 @@ class RegistedMoreThanAWeekUser(BasePermission):
     def has_permission(self, request, view):
         return bool(request.user and request.user.join_date < (timezone.now() - timedelta(days=7)))
 
+class login_permission(BasePermission):
+    def has_permission(self, request, view):
+        return bool(request.user)
+
 class GenericAPIException(APIException):
     def __init__(self, status_code, detail=None, code=None):
         self.status_code=status_code

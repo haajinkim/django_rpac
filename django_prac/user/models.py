@@ -29,6 +29,7 @@ class User(AbstractBaseUser):
     #password 는 hasing 해야하기 때문에 최대 128로 맞춰줌 
     fullname = models.CharField(max_length=50)
     join_date = models.DateTimeField(auto_now_add=True)
+    follow = models.ManyToManyField('User', related_name="followee")
 
     def __str__(self):
         return f"{self.username}/{self.email}/{self.fullname}"

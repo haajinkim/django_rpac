@@ -21,7 +21,6 @@ class BlogSerializer(serializers.ModelSerializer):
         fields = ["user","category","comment","title","desc","create_date","edit_date",
                         "edit_date","exposure_end"]
 
-
 class CommentSerializer(serializers.ModelSerializer):
     user = UserSerializer(read_only=True)
     class Meta:

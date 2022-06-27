@@ -19,4 +19,3 @@ class Comment(models.Model):
     create_date = models.DateTimeField(auto_now=True)
     desc = models.CharField(max_length=50)
 
-    
