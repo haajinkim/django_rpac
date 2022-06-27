@@ -8,10 +8,9 @@ class CategorySerializer(serializers.ModelSerializer):
         fields = ["category"]
 
 class BlogSerializer(serializers.ModelSerializer):
-    category =CategorySerializer()
+    category =CategorySerializer(read_only=True)
     comment =serializers.SerializerMethodField(read_only=True)
     user = serializers.SerializerMethodField()
-
     def get_comment(self,obj):
         comment_list =[{"comment_desc":comment.desc} for comment in obj.comment_set.all()]
         return comment_list

@@ -12,10 +12,11 @@ class Blog(models.Model):
     create_date = models.DateTimeField(auto_now=True)
     edit_date = models.DateTimeField(auto_now=True)
     exposure_end = models.DateTimeField(auto_now_add=False)
-
     
 class Comment(models.Model):
     user = models.ForeignKey(User,on_delete=models.CASCADE)
     title = models.ForeignKey(Blog,on_delete=models.CASCADE)
     create_date = models.DateTimeField(auto_now=True)
     desc = models.CharField(max_length=50)
+
+    
